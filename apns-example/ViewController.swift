@@ -34,11 +34,6 @@ class ViewController: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func showLoader() {
         activityIndicator.hidden = false
         labelsContainer.hidden = true
@@ -49,11 +44,38 @@ class ViewController: UIViewController {
         labelsContainer.hidden = false
     }
     
-    func showError(error: NSError) {
-        print(error.description)
-        let alert = UIAlertController(title: "Alert", message: error.description, preferredStyle: UIAlertControllerStyle.Alert)
+    func showError(error: String) {
+        print(error)
+        let alert = UIAlertController(title: "Alert", message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func registerDevice() {
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        guard let token = delegate.deviceToken else {
+            showError("Cannot obtain device ID from Apple. Please check logs for further details.")
+            return
+        }
+        let device = SCDevice(tokenFromData: token)
+        device.label = deviceModel()
+        device.saveWithCompletionBlock { [weak self] (error) in
+            guard (error == nil) else {
+                self?.showError(error.description)
+                self?.hideLoader()
+                return
+            }
+            
+            self?.performSegueWithIdentifier(ViewController.showNotificationsSegueName, sender: self)
+        }
+        
+    }
+    
+    func deviceModel() -> String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        
+        return NSString(bytes: &systemInfo.machine, length: Int(_SYS_NAMELEN), encoding: NSASCIIStringEncoding)! as String
     }
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
@@ -65,11 +87,11 @@ class ViewController: UIViewController {
         showLoader()
         SCUser.loginWithUsername(username.text, password: username.text) { [weak self] (error) in
             guard (error == nil) else {
-                self?.showError(error)
+                self?.showError(error.description)
                 self?.hideLoader()
                 return
             }
-            self?.performSegueWithIdentifier(ViewController.showNotificationsSegueName, sender: self)
+            self?.registerDevice()
         }
     }
     
@@ -77,11 +99,11 @@ class ViewController: UIViewController {
         showLoader()
         SCUser.registerWithUsername(username.text, password: username.text) { [weak self] (error) in
             guard (error == nil) else {
-                self?.showError(error)
+                self?.showError(error.description)
                 self?.hideLoader()
                 return
             }
-            self?.performSegueWithIdentifier(ViewController.showNotificationsSegueName, sender: self)
+            self?.registerDevice()
         }
     }
 }
