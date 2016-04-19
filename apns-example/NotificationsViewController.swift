@@ -9,16 +9,12 @@
 import UIKit
 import syncano_ios
 
-class NotificationsViewController: UIViewController, UITableViewDataSource {
+class NotificationsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var messages = [(String,String)]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-
+    //MARK: - View states
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         NSNotificationCenter.defaultCenter().addObserverForName(
@@ -29,13 +25,9 @@ class NotificationsViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: AppDelegate.notificationNameNewMessage, object: nil)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     func newMessageReceived(notification: NSNotification) {
         guard let info = notification.userInfo else {
             return
@@ -52,6 +44,10 @@ class NotificationsViewController: UIViewController, UITableViewDataSource {
         messages.insert((title,message), atIndex: 0)
         tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: .Automatic)
     }
+}
+
+// MARK: - UITableViewDataSource
+extension NotificationsViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count

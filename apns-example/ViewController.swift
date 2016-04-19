@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     private static let showNotificationsSegueName = "showNotifications"
     
+    //MARK: - View states
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -34,6 +35,12 @@ class ViewController: UIViewController {
         }
     }
     
+    //MARK: - Navigation
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        SCUser.currentUser().logout()
+    }
+    
+    //MARK: - View operations
     func showLoader() {
         activityIndicator.hidden = false
         labelsContainer.hidden = true
@@ -51,12 +58,25 @@ class ViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    //MARK: - Touches
+    @IBAction func loginClicked(sender: UIButton) {
+        showLoader()
+        login()
+    }
+    
+    @IBAction func registerClicked(sender: UIButton) {
+        showLoader()
+        registerNewUser()
+    }
+    
+    //MARK: - Syncano communication
     func registerDevice() {
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         guard let token = delegate.deviceToken else {
             showError("Cannot obtain device ID from Apple. Please check logs for further details.")
             return
         }
+        
         let device = SCDevice(tokenFromData: token)
         device.label = deviceModel()
         device.saveWithCompletionBlock { [weak self] (error) in
@@ -78,13 +98,7 @@ class ViewController: UIViewController {
         return NSString(bytes: &systemInfo.machine, length: Int(_SYS_NAMELEN), encoding: NSASCIIStringEncoding)! as String
     }
     
-    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
-        SCUser.currentUser().logout()
-    }
-    
-    @IBAction func loginClicked(sender: UIButton) {
-        showLoader()
-        showLoader()
+    func login() {
         SCUser.loginWithUsername(username.text, password: username.text) { [weak self] (error) in
             guard (error == nil) else {
                 self?.showError(error.description)
@@ -95,8 +109,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func registerClicked(sender: UIButton) {
-        showLoader()
+    func registerNewUser() {
         SCUser.registerWithUsername(username.text, password: username.text) { [weak self] (error) in
             guard (error == nil) else {
                 self?.showError(error.description)
