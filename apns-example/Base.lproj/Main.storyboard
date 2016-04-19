@@ -62,8 +62,8 @@
                                     <constraint firstItem="zK7-mb-wTA" firstAttribute="top" secondItem="gQ0-fm-evf" secondAttribute="bottom" constant="20" id="wrt-qF-9DU"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warning! Push notifications don't work on Simulators!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPE-ln-WWJ">
-                                <rect key="frame" x="96" y="571" width="408" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warning! Push notifications don't work on Simulators!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPE-ln-WWJ">
+                                <rect key="frame" x="28" y="571" width="544" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -77,16 +77,19 @@
                         <constraints>
                             <constraint firstItem="iw5-F9-A7C" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0HM-xB-LpC"/>
                             <constraint firstItem="iw5-F9-A7C" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0eY-OV-1se"/>
+                            <constraint firstItem="xPE-ln-WWJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="8vj-Va-uiI"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xPE-ln-WWJ" secondAttribute="bottom" constant="8" id="9pL-jW-FH7"/>
                             <constraint firstItem="xPE-ln-WWJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AgX-Pa-GiV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="I11-e2-5F0" secondAttribute="trailing" id="XkO-AP-hT2"/>
                             <constraint firstItem="I11-e2-5F0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ZXw-83-fbo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xPE-ln-WWJ" secondAttribute="trailing" constant="8" id="cPA-AS-aXC"/>
                             <constraint firstItem="I11-e2-5F0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gly-wb-s7B"/>
                             <constraint firstItem="I11-e2-5F0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="20" id="vDB-q7-Ta0"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="ZXw-83-fbo"/>
+                                <exclude reference="AgX-Pa-GiV"/>
                             </mask>
                         </variation>
                     </view>

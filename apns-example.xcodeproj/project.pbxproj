@@ -13,19 +13,8 @@
 		A69CDB471CC4ECAB0035F293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A69CDB451CC4ECAB0035F293 /* Main.storyboard */; };
 		A69CDB491CC4ECAB0035F293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69CDB481CC4ECAB0035F293 /* Assets.xcassets */; };
 		A69CDB4C1CC4ECAB0035F293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A69CDB4A1CC4ECAB0035F293 /* LaunchScreen.storyboard */; };
-		A69CDB571CC4ECAB0035F293 /* apns_exampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69CDB561CC4ECAB0035F293 /* apns_exampleTests.swift */; };
 		A69CDB621CC610C50035F293 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69CDB611CC610C50035F293 /* NotificationsViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		A69CDB531CC4ECAB0035F293 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A69CDB361CC4ECAB0035F293 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A69CDB3D1CC4ECAB0035F293;
-			remoteInfo = "apns-example";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		36DFCA2C3085125FAC7C4F29 /* Pods-apns-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-apns-example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-apns-example/Pods-apns-example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -36,9 +25,6 @@
 		A69CDB481CC4ECAB0035F293 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A69CDB4B1CC4ECAB0035F293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A69CDB4D1CC4ECAB0035F293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A69CDB521CC4ECAB0035F293 /* apns-exampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "apns-exampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A69CDB561CC4ECAB0035F293 /* apns_exampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apns_exampleTests.swift; sourceTree = "<group>"; };
-		A69CDB581CC4ECAB0035F293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A69CDB611CC610C50035F293 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		C85C339C4D2649F9D454F722 /* Pods-apns-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-apns-example.release.xcconfig"; path = "Pods/Target Support Files/Pods-apns-example/Pods-apns-example.release.xcconfig"; sourceTree = "<group>"; };
 		F0AB5EAA5A89FDEC775E5978 /* Pods_apns_example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_apns_example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,13 +36,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				06FD7E05340A12492E4BE686 /* Pods_apns_example.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A69CDB4F1CC4ECAB0035F293 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				A69CDB401CC4ECAB0035F293 /* apns-example */,
-				A69CDB551CC4ECAB0035F293 /* apns-exampleTests */,
 				A69CDB3F1CC4ECAB0035F293 /* Products */,
 				5C59E2BB327CE11EA7877AAE /* Pods */,
 				FF5443420CAAF81BA1158246 /* Frameworks */,
@@ -87,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				A69CDB3E1CC4ECAB0035F293 /* apns-example.app */,
-				A69CDB521CC4ECAB0035F293 /* apns-exampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,15 +81,6 @@
 				A69CDB4D1CC4ECAB0035F293 /* Info.plist */,
 			);
 			path = "apns-example";
-			sourceTree = "<group>";
-		};
-		A69CDB551CC4ECAB0035F293 /* apns-exampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				A69CDB561CC4ECAB0035F293 /* apns_exampleTests.swift */,
-				A69CDB581CC4ECAB0035F293 /* Info.plist */,
-			);
-			path = "apns-exampleTests";
 			sourceTree = "<group>";
 		};
 		FF5443420CAAF81BA1158246 /* Frameworks */ = {
@@ -146,24 +114,6 @@
 			productReference = A69CDB3E1CC4ECAB0035F293 /* apns-example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A69CDB511CC4ECAB0035F293 /* apns-exampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A69CDB5E1CC4ECAB0035F293 /* Build configuration list for PBXNativeTarget "apns-exampleTests" */;
-			buildPhases = (
-				A69CDB4E1CC4ECAB0035F293 /* Sources */,
-				A69CDB4F1CC4ECAB0035F293 /* Frameworks */,
-				A69CDB501CC4ECAB0035F293 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A69CDB541CC4ECAB0035F293 /* PBXTargetDependency */,
-			);
-			name = "apns-exampleTests";
-			productName = "apns-exampleTests";
-			productReference = A69CDB521CC4ECAB0035F293 /* apns-exampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -186,10 +136,6 @@
 							};
 						};
 					};
-					A69CDB511CC4ECAB0035F293 = {
-						CreatedOnToolsVersion = 7.3;
-						TestTargetID = A69CDB3D1CC4ECAB0035F293;
-					};
 				};
 			};
 			buildConfigurationList = A69CDB391CC4ECAB0035F293 /* Build configuration list for PBXProject "apns-example" */;
@@ -206,7 +152,6 @@
 			projectRoot = "";
 			targets = (
 				A69CDB3D1CC4ECAB0035F293 /* apns-example */,
-				A69CDB511CC4ECAB0035F293 /* apns-exampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -219,13 +164,6 @@
 				A69CDB4C1CC4ECAB0035F293 /* LaunchScreen.storyboard in Resources */,
 				A69CDB491CC4ECAB0035F293 /* Assets.xcassets in Resources */,
 				A69CDB471CC4ECAB0035F293 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A69CDB501CC4ECAB0035F293 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,23 +228,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A69CDB4E1CC4ECAB0035F293 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A69CDB571CC4ECAB0035F293 /* apns_exampleTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A69CDB541CC4ECAB0035F293 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A69CDB3D1CC4ECAB0035F293 /* apns-example */;
-			targetProxy = A69CDB531CC4ECAB0035F293 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A69CDB451CC4ECAB0035F293 /* Main.storyboard */ = {
@@ -437,30 +359,6 @@
 			};
 			name = Release;
 		};
-		A69CDB5F1CC4ECAB0035F293 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "apns-exampleTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.syncano.apns-exampleTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/apns-example.app/apns-example";
-			};
-			name = Debug;
-		};
-		A69CDB601CC4ECAB0035F293 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "apns-exampleTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.syncano.apns-exampleTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/apns-example.app/apns-example";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -478,15 +376,6 @@
 			buildConfigurations = (
 				A69CDB5C1CC4ECAB0035F293 /* Debug */,
 				A69CDB5D1CC4ECAB0035F293 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A69CDB5E1CC4ECAB0035F293 /* Build configuration list for PBXNativeTarget "apns-exampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A69CDB5F1CC4ECAB0035F293 /* Debug */,
-				A69CDB601CC4ECAB0035F293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
