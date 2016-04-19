@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import syncano_ios
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let syncano = Syncano.sharedInstanceWithApiKey("a3a132f90cff8ddb78b5002a755b804793aec3c1", instanceName: "ancient-cloud-2212")
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
         return true
     }
 

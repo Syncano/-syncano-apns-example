@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06FD7E05340A12492E4BE686 /* Pods_apns_example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AB5EAA5A89FDEC775E5978 /* Pods_apns_example.framework */; };
 		A69CDB421CC4ECAB0035F293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69CDB411CC4ECAB0035F293 /* AppDelegate.swift */; };
 		A69CDB441CC4ECAB0035F293 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69CDB431CC4ECAB0035F293 /* ViewController.swift */; };
 		A69CDB471CC4ECAB0035F293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A69CDB451CC4ECAB0035F293 /* Main.storyboard */; };
 		A69CDB491CC4ECAB0035F293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69CDB481CC4ECAB0035F293 /* Assets.xcassets */; };
 		A69CDB4C1CC4ECAB0035F293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A69CDB4A1CC4ECAB0035F293 /* LaunchScreen.storyboard */; };
 		A69CDB571CC4ECAB0035F293 /* apns_exampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69CDB561CC4ECAB0035F293 /* apns_exampleTests.swift */; };
+		A69CDB621CC610C50035F293 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69CDB611CC610C50035F293 /* NotificationsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36DFCA2C3085125FAC7C4F29 /* Pods-apns-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-apns-example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-apns-example/Pods-apns-example.debug.xcconfig"; sourceTree = "<group>"; };
 		A69CDB3E1CC4ECAB0035F293 /* apns-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "apns-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69CDB411CC4ECAB0035F293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A69CDB431CC4ECAB0035F293 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +39,9 @@
 		A69CDB521CC4ECAB0035F293 /* apns-exampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "apns-exampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69CDB561CC4ECAB0035F293 /* apns_exampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apns_exampleTests.swift; sourceTree = "<group>"; };
 		A69CDB581CC4ECAB0035F293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A69CDB611CC610C50035F293 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		C85C339C4D2649F9D454F722 /* Pods-apns-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-apns-example.release.xcconfig"; path = "Pods/Target Support Files/Pods-apns-example/Pods-apns-example.release.xcconfig"; sourceTree = "<group>"; };
+		F0AB5EAA5A89FDEC775E5978 /* Pods_apns_example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_apns_example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06FD7E05340A12492E4BE686 /* Pods_apns_example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +63,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C59E2BB327CE11EA7877AAE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				36DFCA2C3085125FAC7C4F29 /* Pods-apns-example.debug.xcconfig */,
+				C85C339C4D2649F9D454F722 /* Pods-apns-example.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A69CDB351CC4ECAB0035F293 = {
 			isa = PBXGroup;
 			children = (
 				A69CDB401CC4ECAB0035F293 /* apns-example */,
 				A69CDB551CC4ECAB0035F293 /* apns-exampleTests */,
 				A69CDB3F1CC4ECAB0035F293 /* Products */,
+				5C59E2BB327CE11EA7877AAE /* Pods */,
+				FF5443420CAAF81BA1158246 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +97,7 @@
 			children = (
 				A69CDB411CC4ECAB0035F293 /* AppDelegate.swift */,
 				A69CDB431CC4ECAB0035F293 /* ViewController.swift */,
+				A69CDB611CC610C50035F293 /* NotificationsViewController.swift */,
 				A69CDB451CC4ECAB0035F293 /* Main.storyboard */,
 				A69CDB481CC4ECAB0035F293 /* Assets.xcassets */,
 				A69CDB4A1CC4ECAB0035F293 /* LaunchScreen.storyboard */,
@@ -96,6 +115,14 @@
 			path = "apns-exampleTests";
 			sourceTree = "<group>";
 		};
+		FF5443420CAAF81BA1158246 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0AB5EAA5A89FDEC775E5978 /* Pods_apns_example.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +130,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A69CDB5B1CC4ECAB0035F293 /* Build configuration list for PBXNativeTarget "apns-example" */;
 			buildPhases = (
+				17741BFBEBA038624262A6EC /* Check Pods Manifest.lock */,
 				A69CDB3A1CC4ECAB0035F293 /* Sources */,
 				A69CDB3B1CC4ECAB0035F293 /* Frameworks */,
 				A69CDB3C1CC4ECAB0035F293 /* Resources */,
+				46D2901A5A068B4E7703CABE /* Embed Pods Frameworks */,
+				4349C58D7162D22D5ABB6286 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,11 +222,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		17741BFBEBA038624262A6EC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4349C58D7162D22D5ABB6286 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-apns-example/Pods-apns-example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46D2901A5A068B4E7703CABE /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-apns-example/Pods-apns-example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A69CDB3A1CC4ECAB0035F293 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A69CDB621CC610C50035F293 /* NotificationsViewController.swift in Sources */,
 				A69CDB441CC4ECAB0035F293 /* ViewController.swift in Sources */,
 				A69CDB421CC4ECAB0035F293 /* AppDelegate.swift in Sources */,
 			);
@@ -325,6 +404,7 @@
 		};
 		A69CDB5C1CC4ECAB0035F293 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36DFCA2C3085125FAC7C4F29 /* Pods-apns-example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "apns-example/Info.plist";
@@ -336,6 +416,7 @@
 		};
 		A69CDB5D1CC4ECAB0035F293 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C85C339C4D2649F9D454F722 /* Pods-apns-example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "apns-example/Info.plist";
@@ -388,6 +469,7 @@
 				A69CDB5D1CC4ECAB0035F293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A69CDB5E1CC4ECAB0035F293 /* Build configuration list for PBXNativeTarget "apns-exampleTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +478,7 @@
 				A69CDB601CC4ECAB0035F293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
