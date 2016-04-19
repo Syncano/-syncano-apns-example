@@ -51,9 +51,13 @@ class ViewController: UIViewController {
         labelsContainer.hidden = false
     }
     
-    func showError(error: String) {
-        print(error)
-        let alert = UIAlertController(title: "Alert", message: error, preferredStyle: UIAlertControllerStyle.Alert)
+    func showError(error: NSError) {
+       showErrorString(error.userInfo["com.Syncano.response.error"]?.description ?? error.description)
+    }
+    
+    func showErrorString(string: String) {
+        print(string)
+        let alert = UIAlertController(title: "Alert", message: string, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
     }
@@ -73,15 +77,16 @@ class ViewController: UIViewController {
     func registerDevice() {
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         guard let token = delegate.deviceToken else {
-            showError("Cannot obtain device ID from Apple. Please check logs for further details.")
+            showErrorString("Cannot obtain device ID from Apple. Please check logs for further details.")
             return
         }
         
+        //This adds device to Syncano
         let device = SCDevice(tokenFromData: token)
         device.label = deviceModel()
         device.saveWithCompletionBlock { [weak self] (error) in
             guard (error == nil) else {
-                self?.showError(error.description)
+                self?.showError(error)
                 self?.hideLoader()
                 return
             }
@@ -91,33 +96,32 @@ class ViewController: UIViewController {
         
     }
     
-    func deviceModel() -> String {
-        var systemInfo = utsname()
-        uname(&systemInfo)
-        
-        return NSString(bytes: &systemInfo.machine, length: Int(_SYS_NAMELEN), encoding: NSASCIIStringEncoding)! as String
-    }
-    
     func login() {
         SCUser.loginWithUsername(username.text, password: username.text) { [weak self] (error) in
-            guard (error == nil) else {
-                self?.showError(error.description)
-                self?.hideLoader()
-                return
-            }
-            self?.registerDevice()
+            self?.profileExistsWithError(error)
         }
     }
     
     func registerNewUser() {
         SCUser.registerWithUsername(username.text, password: username.text) { [weak self] (error) in
-            guard (error == nil) else {
-                self?.showError(error.description)
-                self?.hideLoader()
-                return
-            }
-            self?.registerDevice()
+            self?.profileExistsWithError(error)
         }
+    }
+    
+    func profileExistsWithError(error: NSError?) {
+        guard (error == nil) else {
+            self.showError(error!)
+            self.hideLoader()
+            return
+        }
+        self.registerDevice()
+    }
+    
+    func deviceModel() -> String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        
+        return NSString(bytes: &systemInfo.machine, length: Int(_SYS_NAMELEN), encoding: NSASCIIStringEncoding)! as String
     }
 }
 
