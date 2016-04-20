@@ -7,7 +7,3 @@ target 'apns-example' do
 	pod 'syncano-ios'
 end
 
-target 'apns-exampleTests' do
-
-end
-
