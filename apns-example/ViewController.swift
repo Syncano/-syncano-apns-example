@@ -9,6 +9,8 @@
 import UIKit
 import syncano_ios
 
+let syncanoErrorUserInfoKey = "com.Syncano.response.error"
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -52,7 +54,7 @@ class ViewController: UIViewController {
     }
     
     func showError(error: NSError) {
-       showErrorString(error.userInfo["com.Syncano.response.error"]?.description ?? error.description)
+       showErrorString(error.userInfo[syncanoErrorUserInfoKey]?.description ?? error.description)
     }
     
     func showErrorString(string: String) {
@@ -74,6 +76,19 @@ class ViewController: UIViewController {
     }
     
     //MARK: - Syncano communication
+    func isRegistrationErrorAlreadyExists(error: NSError) -> Bool {
+        guard let errorDictionary = error.userInfo[syncanoErrorUserInfoKey] as? [String:AnyObject] else {
+            return false
+        }
+        let errorMessages = errorDictionary["registration_id"] as? [String]
+        if let message = errorMessages?.first
+        where message == "APNSDevice with this registration id already exists." {
+            return true
+        }
+        return false
+    }
+    
+    
     func registerDevice() {
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         guard let token = delegate.deviceToken else {
@@ -85,7 +100,7 @@ class ViewController: UIViewController {
         let device = SCDevice(tokenFromData: token)
         device.label = deviceModel()
         device.saveWithCompletionBlock { [weak self] (error) in
-            guard (error == nil) else {
+            if error != nil && self?.isRegistrationErrorAlreadyExists(error) == false {
                 self?.showError(error)
                 self?.hideLoader()
                 return
@@ -96,14 +111,30 @@ class ViewController: UIViewController {
         
     }
     
+    func checkAndAlertIfUsernameAndPasswordAreEmpty() -> Bool {
+        if (username.text?.characters.count < 1
+            || password.text?.characters.count < 1) {
+            self.showErrorString("Please provide both username and password first")
+            self.hideLoader()
+            return true
+        }
+        return false
+    }
+    
     func login() {
-        SCUser.loginWithUsername(username.text, password: username.text) { [weak self] (error) in
+        guard self.checkAndAlertIfUsernameAndPasswordAreEmpty() == false else {
+            return
+        }
+        SCUser.loginWithUsername(username.text, password: password.text) { [weak self] (error) in
             self?.profileExistsWithError(error)
         }
     }
     
     func registerNewUser() {
-        SCUser.registerWithUsername(username.text, password: username.text) { [weak self] (error) in
+        guard self.checkAndAlertIfUsernameAndPasswordAreEmpty() == false else {
+            return
+        }
+        SCUser.registerWithUsername(username.text, password: password.text) { [weak self] (error) in
             self?.profileExistsWithError(error)
         }
     }
